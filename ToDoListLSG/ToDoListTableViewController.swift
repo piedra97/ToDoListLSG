@@ -48,10 +48,12 @@ class ToDoListTableViewController: UITableViewController {
         cell.detailTextLabel?.text = dateFormatter.string(from: item.creatioonDate)
         
         if item.completed{
-            cell.accessoryType = UITableViewCell.AccessoryType.checkmark
-        } else {
-            cell.accessoryType = UITableViewCell.AccessoryType.none
-        }
+            cell.backgroundColor = UIColor.green
+            /*cell.accessoryType = UITableViewCell.AccessoryType.checkmark*/
+        } /*else {
+            cell.accessoryType = UITableViewCell.AccessoryType.none */
+        
+        cell.accessoryType = .detailDisclosureButton
         
         return cell
     }
@@ -69,12 +71,24 @@ class ToDoListTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    @IBAction func goBack(segue: UIStoryboardSegue) {
-        if let aNewItem = newItem {
-            toDoItemManager.addItem(item: aNewItem)
-            tableView.reloadData()
-        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Detail Segue" {
+            if let dtdvc = segue.destination as? DetailToDoItemViewController {
+                dtdvc.itemToWork = newItem          }
         }
-
+    }
+    @IBAction func goBack(segue: UIStoryboardSegue) {
+        switch segue.identifier {
+        case "Add Segue":
+            if let aNewItem = newItem {
+                toDoItemManager.addItem(item: aNewItem)
+                tableView.reloadData()
+            }
+        case "Detail Segue":
+            tableView.reloadData()
+        default:
+            break
+    }
+        
     }
 }
