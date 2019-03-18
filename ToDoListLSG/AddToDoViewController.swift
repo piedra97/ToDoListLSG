@@ -22,11 +22,11 @@ class AddToDoViewController: UIViewController, UITextFieldDelegate{
     }
     
     @objc func keyboardWillShow(_ sender: Notification){
-        self.view.frame.origin.y -= 50
+        self.view.frame.origin.y -= 100
     }
     
     @objc func keyboardWillHide(_ sender: Notification){
-        self.view.frame.origin.y += 50
+        self.view.frame.origin.y += 100
     }
    
     
