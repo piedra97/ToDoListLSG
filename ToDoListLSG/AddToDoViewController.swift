@@ -16,9 +16,9 @@ class AddToDoViewController: UIViewController, UITextFieldDelegate{
         super.viewDidLoad()
         newItemTextField.delegate = self
         
-        /*NotificationCenter.default.addObserver(self, selector: #selector(AddToDoViewController.keyboardWillShow(_:)), name: Notification.Name.UIKeyboardWillShow, object: view.window)
+        NotificationCenter.default.addObserver(self, selector: #selector(AddToDoViewController.keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: view.window)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(AddToDoViewController.keyboardWillHide(_:)), name: Notification.Name.UIKeyboardWillHide, object: view.window)*/
+        NotificationCenter.default.addObserver(self, selector: #selector(AddToDoViewController.keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: view.window)
     }
     
     @objc func keyboardWillShow(_ sender: Notification){

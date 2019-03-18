@@ -61,7 +61,7 @@ class ToDoListTableViewController: UITableViewController {
             toDoItemManager.deleItem(index: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
-    }
+     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
@@ -71,7 +71,6 @@ class ToDoListTableViewController: UITableViewController {
     
     @IBAction func goBack(segue: UIStoryboardSegue) {
         if let aNewItem = newItem {
-            self.newItem = nil
             toDoItemManager.addItem(item: aNewItem)
             tableView.reloadData()
         

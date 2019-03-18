@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Lic-sw-hYA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Lic-sw-hYA">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -52,7 +52,7 @@
                     <navigationItem key="navigationItem" title="To Do List" id="djW-gM-Aeh">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="zei-zz-3mz">
                             <connections>
-                                <segue destination="i3v-WY-ytJ" kind="presentation" identifier="Add Segue" id="KBU-Wu-lhy"/>
+                                <segue destination="i3v-WY-ytJ" kind="presentation" id="5Rf-fT-dhr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -64,7 +64,7 @@
         <!--New Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ToDoListLSG" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="AddToDoViewController" customModule="ToDoListLSG" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -86,13 +86,12 @@
                     <navigationItem key="navigationItem" title="New Item" id="lrU-Wg-Q6l">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="cpF-NS-0ez">
                             <connections>
-                                <segue destination="Mly-WQ-x81" kind="unwind" identifier="Cancel Segue" unwindAction="goBackWithSegue:" id="7Ra-RB-mrz"/>
+                                <segue destination="Mly-WQ-x81" kind="unwind" unwindAction="goBackWithSegue:" id="nKq-Dd-Uf7"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="CRs-r6-gfQ">
                             <connections>
-                                <action selector="goBack:" destination="BYZ-38-t0r" id="r1p-Qd-Oi2"/>
-                                <segue destination="Mly-WQ-x81" kind="unwind" identifier="Save Segue" unwindAction="goBackWithSegue:" id="CyG-U1-RC7"/>
+                                <segue destination="Mly-WQ-x81" kind="unwind" identifier="Save Segue" unwindAction="goBackWithSegue:" id="g6k-OH-HnT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -126,6 +125,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Mw8-AF-yOr">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rQP-Io-qHm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="i3v-WY-ytJ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yLk-yB-fFC">
@@ -137,9 +137,8 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="3Ac-dY-erv"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rQP-Io-qHm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2464.8000000000002" y="5.8470764617691158"/>
+            <point key="canvasLocation" x="2378" y="-13"/>
         </scene>
     </scenes>
 </document>
