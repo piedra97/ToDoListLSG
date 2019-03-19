@@ -71,15 +71,16 @@ class ToDoListTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Detail Segue" {
-            if let dtdvc = segue.destination as? DetailToDoItemViewController {
-                dtdvc.itemToWork = newItem          }
+        if let dtdvc = segue.destination as? DetailToDoItemViewController{
+            dtdvc.itemToWork = newItem
         }
     }
+    
     @IBAction func goBack(segue: UIStoryboardSegue) {
         switch segue.identifier {
-        case "Add Segue":
+        case "Save Segue":
             if let aNewItem = newItem {
                 toDoItemManager.addItem(item: aNewItem)
                 tableView.reloadData()

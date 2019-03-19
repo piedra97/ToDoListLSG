@@ -12,16 +12,21 @@ class DetailToDoItemViewController: UIViewController {
 
     @IBOutlet weak var dateToDo: UILabel!
     @IBOutlet weak var nameToDo: UILabel!
-    @IBOutlet weak var hourToDo: UILabel!
-    var itemToWork:ToDoItem? = nil
     
-    @IBAction func completed(_ sender: Any) {
+    var itemToWork:ToDoItem?
+    
+    
+    @IBAction func completed(_ sender: UISwitch) {
     }
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let currentItemToDo = itemToWork {
+            dateToDo.text = DateFormatter().string(from: currentItemToDo.creatioonDate)
+            nameToDo.text = currentItemToDo.name
+        }
         
-
-        // Do any additional setup after loading the view.
     }
     
 
