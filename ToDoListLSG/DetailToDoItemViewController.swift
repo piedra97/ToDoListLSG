@@ -9,21 +9,29 @@
 import UIKit
 
 class DetailToDoItemViewController: UIViewController {
-
+    
     @IBOutlet weak var dateToDo: UILabel!
     @IBOutlet weak var nameToDo: UILabel!
     
     var itemToWork:ToDoItem?
     
     
-    @IBAction func completed(_ sender: UISwitch) {
+    @IBOutlet weak var switchButton: UISwitch!
+    
+    @IBAction func switched(_ sender: UISwitch) {
+        if sender.isOn {
+            itemToWork?.markAsCompleted()
+        }
     }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        switchButton.isOn = false
         if let currentItemToDo = itemToWork {
-            dateToDo.text = DateFormatter().string(from: currentItemToDo.creatioonDate)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
+            dateToDo.text = dateFormatter.string(from: currentItemToDo.creatioonDate)
             nameToDo.text = currentItemToDo.name
         }
         

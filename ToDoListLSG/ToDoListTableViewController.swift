@@ -67,16 +67,26 @@ class ToDoListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        toDoItemManager.markItemsAsCompleted(itemIndex: indexPath.row)
+        let item = toDoItemManager.items[indexPath.row]
+        self.performSegue(withIdentifier: "Detail Segue", sender: item)
         tableView.reloadData()
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let dtdvc = segue.destination as? DetailToDoItemViewController{
-            dtdvc.itemToWork = newItem
+        if segue.identifier == "Detail Segue" {
+            if let cell = sender as? UITableViewCell,
+                let indexPath = tableView.indexPath(for: cell)
+            {
+                if let destinationNavigationController = segue.destination as? UINavigationController,
+                    let targetController = destinationNavigationController.topViewController as? DetailToDoItemViewController {
+                    targetController.itemToWork = toDoItemManager.items[indexPath.row]
+                }
+            }
         }
     }
+        
+
     
     @IBAction func goBack(segue: UIStoryboardSegue) {
         switch segue.identifier {
